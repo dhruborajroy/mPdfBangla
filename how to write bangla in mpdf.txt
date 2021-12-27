@@ -1,0 +1,28 @@
+1.
+search-> mpdf github
+url -> https://github.com/mpdf/mpdf
+composer -> composer require mpdf/mpdf
+
+2. 
+search -> nikosh
+url  -> https://www.omicronlab.com/bangla-fonts.html
+nikosh  -> download
+3.
+
+cut -> Nikosh.pdf
+paste  -> \vendor\mpdf\mpdf\ttfonts
+
+4. 
+search -> fontvariables.php
+edit -> "nikosh" => ['R' => "Nikosh.ttf",'useOTL' => 0xFF,],
+where -> Indic Position
+
+6. 
+code ->
+
+$mpdf = new \Mpdf\Mpdf([
+    // 'default_font_size'=>12,
+    'default_font' => 'nikosh'
+]);
+$mpdf->WriteHTML('ধ্রুব রাজ রায়');
+$mpdf->Output();
